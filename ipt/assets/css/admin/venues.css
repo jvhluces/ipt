@@ -1,0 +1,25 @@
+ body {
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            min-height: calc(100vh - 56px);
+        }
+
+        .nav-link {
+            padding: 10px 12px;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .table td,
+        .table th {
+            vertical-align: middle;
+        }
+
+        .card {
+            border: none;
+        }

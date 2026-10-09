@@ -1,0 +1,608 @@
+ * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background: #f5f7fb;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+
+        /* =========================================================
+           APPLICATION
+        ========================================================= */
+
+        .app-wrapper {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+
+            background: #172033;
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            z-index: 1000;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,.20);
+            border-radius: 10px;
+        }
+
+        /* =========================================================
+           SIDEBAR BRAND
+        ========================================================= */
+
+        .sidebar-brand {
+            padding: 24px 20px;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .sidebar-brand h4 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .sidebar-brand small {
+            display: block;
+            margin-top: 4px;
+            color: #9da8ba;
+            font-size: 12px;
+        }
+
+        /* =========================================================
+           SIDEBAR MENU
+        ========================================================= */
+
+        .sidebar-menu {
+            padding: 18px 12px;
+            flex: 1;
+        }
+
+        .sidebar-section-title {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #77839a;
+            font-weight: 700;
+            padding: 8px 12px;
+            margin-bottom: 6px;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+
+            width: 100%;
+
+            padding: 11px 13px;
+            margin-bottom: 4px;
+
+            color: #c8d0dd;
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            transition:
+                background .2s ease,
+                color .2s ease;
+        }
+
+        .sidebar-link i {
+            width: 22px;
+            font-size: 17px;
+            margin-right: 10px;
+        }
+
+        .sidebar-link:hover {
+            background: rgba(255,255,255,.07);
+            color: white;
+        }
+
+        .sidebar-link.active {
+            background: #2f6fed;
+            color: white;
+        }
+
+        /* =========================================================
+           SIDEBAR FOOTER
+        ========================================================= */
+
+        .sidebar-footer {
+            padding: 15px 12px;
+            border-top: 1px solid rgba(255,255,255,.08);
+        }
+
+        .logout-link {
+            color: #ffb4b4;
+        }
+
+        .logout-link:hover {
+            color: white;
+            background: rgba(220,53,69,.15);
+        }
+
+        /* =========================================================
+           MAIN AREA
+        ========================================================= */
+
+        .main-area {
+            margin-left: 250px;
+
+            width: calc(100% - 250px);
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
+        }
+
+        /* =========================================================
+           TOPBAR
+        ========================================================= */
+
+        .topbar {
+            height: 68px;
+            min-height: 68px;
+
+            background: white;
+            border-bottom: 1px solid #e5e8ee;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 28px;
+        }
+
+        .topbar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #202938;
+        }
+
+        .topbar-subtitle {
+            font-size: 12px;
+            color: #8993a4;
+            margin-top: 2px;
+        }
+
+        .admin-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: #687386;
+            font-size: 13px;
+        }
+
+        .admin-badge i {
+            font-size: 19px;
+            color: #2f6fed;
+        }
+
+        /* =========================================================
+           CONTENT
+        ========================================================= */
+
+        .content-area {
+            flex: 1;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            padding: 28px;
+        }
+
+        .content-area::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .content-area::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .content-area::-webkit-scrollbar-thumb {
+            background: #cbd2dd;
+            border-radius: 10px;
+        }
+
+        /* =========================================================
+           PAGE HEADER
+        ========================================================= */
+
+        .page-header {
+            margin-bottom: 25px;
+        }
+
+        .page-header h1 {
+            font-size: 25px;
+            font-weight: 700;
+            color: #202938;
+            margin-bottom: 5px;
+        }
+
+        .page-header p {
+            margin: 0;
+            color: #7b8494;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           ALERT
+        ========================================================= */
+
+        .alert {
+            border-radius: 10px;
+            border: none;
+        }
+
+        /* =========================================================
+           STAT CARDS
+        ========================================================= */
+
+        .stat-card {
+            background: white;
+
+            border: 1px solid #e7eaf0;
+            border-radius: 12px;
+
+            padding: 20px;
+
+            height: 100%;
+
+            box-shadow:
+                0 2px 8px rgba(23,32,51,.04);
+        }
+
+        .stat-icon {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            font-size: 19px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #7d8797;
+            margin-bottom: 3px;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #202938;
+        }
+
+        /* =========================================================
+           SETTINGS CARD
+        ========================================================= */
+
+        .settings-card {
+            background: white;
+
+            border: 1px solid #e7eaf0;
+            border-radius: 12px;
+
+            box-shadow:
+                0 2px 8px rgba(23,32,51,.04);
+
+            margin-bottom: 22px;
+        }
+
+        .settings-card-header {
+            padding: 20px 22px;
+
+            border-bottom: 1px solid #edf0f4;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .settings-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9px;
+
+            margin-right: 13px;
+
+            font-size: 18px;
+        }
+
+        .settings-card-title {
+            margin: 0;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            color: #202938;
+        }
+
+        .settings-card-description {
+            margin: 3px 0 0;
+
+            color: #858e9e;
+
+            font-size: 12px;
+        }
+
+        .settings-card-body {
+            padding: 22px;
+        }
+
+        /* =========================================================
+           SETTING ROW
+        ========================================================= */
+
+        .setting-row {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 17px 0;
+
+            border-bottom: 1px solid #edf0f4;
+        }
+
+        .setting-row:first-child {
+            padding-top: 0;
+        }
+
+        .setting-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .setting-info {
+            padding-right: 25px;
+        }
+
+        .setting-title {
+            font-size: 14px;
+            font-weight: 600;
+
+            color: #303948;
+
+            margin-bottom: 4px;
+        }
+
+        .setting-description {
+            font-size: 12px;
+
+            color: #8a93a2;
+
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           SWITCH
+        ========================================================= */
+
+        .setting-switch {
+            flex-shrink: 0;
+        }
+
+        .form-check-input {
+            width: 44px;
+            height: 23px;
+
+            cursor: pointer;
+        }
+
+        .form-check-input:checked {
+            background-color: #2f6fed;
+            border-color: #2f6fed;
+        }
+
+        .form-check-input:focus {
+            box-shadow:
+                0 0 0 .2rem rgba(47,111,237,.15);
+        }
+
+        /* =========================================================
+           SAVE AREA
+        ========================================================= */
+
+        .settings-save-area {
+            margin-top: 22px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #edf0f4;
+
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .save-button {
+            min-width: 145px;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           STATUS
+        ========================================================= */
+
+        .status-item {
+            border: 1px solid #e8ebf0;
+
+            border-radius: 10px;
+
+            padding: 16px;
+
+            background: #fafbfc;
+        }
+
+        .status-number {
+            font-size: 22px;
+
+            font-weight: 700;
+
+            color: #202938;
+        }
+
+        .status-name {
+            font-size: 12px;
+
+            color: #7d8797;
+
+            margin-top: 2px;
+        }
+
+        /* =========================================================
+           SETTING STATUS BADGE
+        ========================================================= */
+
+        .setting-status {
+            margin-top: 5px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .setting-status.enabled {
+            color: #198754;
+        }
+
+        .setting-status.disabled {
+            color: #dc3545;
+        }
+
+        /* =========================================================
+           INFO BOX
+        ========================================================= */
+
+        .settings-info-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+
+            padding: 15px 17px;
+
+            border-radius: 10px;
+
+            background: #f1f6ff;
+            border: 1px solid #dbe8ff;
+
+            color: #31527e;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+        .settings-info-box i {
+            font-size: 17px;
+            margin-top: 1px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .sidebar {
+                width: 220px;
+            }
+
+            .main-area {
+                margin-left: 220px;
+                width: calc(100% - 220px);
+            }
+
+            .content-area {
+                padding: 20px;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-area {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+
+            .content-area {
+                padding: 15px;
+            }
+
+            .topbar {
+                padding: 0 15px;
+            }
+
+            .admin-badge span {
+                display: none;
+            }
+
+            .setting-row {
+                align-items: flex-start;
+            }
+
+            .setting-info {
+                padding-right: 12px;
+            }
+        }

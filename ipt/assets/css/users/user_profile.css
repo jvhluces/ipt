@@ -1,0 +1,1186 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-soft: #eff6ff;
+
+    --text: #111827;
+    --text-soft: #4b5563;
+    --muted: #6b7280;
+
+    --bg: #f8fafc;
+    --white: #ffffff;
+
+    --border: #e5e7eb;
+
+    --danger: #dc2626;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    --shadow-sm:
+        0 2px 8px rgba(15, 23, 42, .04);
+
+    --shadow-md:
+        0 8px 24px rgba(15, 23, 42, .08);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    transition: all .2s ease;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 250px;
+
+    background: var(--white);
+
+    border-right:
+        1px solid var(--border);
+
+    z-index: 1050;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-shadow:
+        4px 0 18px
+        rgba(15, 23, 42, .025);
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        #d1d5db transparent;
+
+    transition:
+        transform .25s ease;
+}
+
+
+/* =========================================================
+   SIDEBAR SCROLLBAR
+========================================================= */
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   SIDEBAR PROFILE
+========================================================= */
+
+/*
+   IMPORTANT:
+   Only .sidebar-profile is allowed to control
+   the profile image inside the sidebar.
+*/
+
+.sidebar-profile {
+    padding:
+        26px
+        20px
+        24px;
+
+    text-align: center;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            #2563eb,
+            #1d4ed8
+        );
+}
+
+
+/* SIDEBAR PROFILE IMAGE */
+
+.sidebar-profile .sidebar-avatar {
+    display: block;
+
+    width: 76px !important;
+    height: 76px !important;
+
+    max-width: 76px !important;
+    max-height: 76px !important;
+
+    min-width: 76px;
+    min-height: 76px;
+
+    margin:
+        0 auto 11px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border:
+        3px solid
+        rgba(255, 255, 255, .95);
+
+    background: white;
+
+    box-shadow:
+        0 6px 18px
+        rgba(0, 0, 0, .15);
+}
+
+
+/* SIDEBAR NAME */
+
+.sidebar-profile .sidebar-profile-name {
+    max-width: 210px;
+
+    margin:
+        0 auto;
+
+    font-weight: 700;
+
+    font-size: 15px;
+
+    line-height: 1.3;
+
+    color: white;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* SIDEBAR ROLE */
+
+.sidebar-profile .sidebar-profile-role {
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    color:
+        rgba(255, 255, 255, .85);
+}
+
+
+/* =========================================================
+   SIDEBAR SECTION LABEL
+========================================================= */
+
+.sidebar-section-title {
+    font-size: 10px;
+
+    font-weight: 800;
+
+    color: #9ca3af;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+    padding:
+        12px
+        23px
+        8px;
+}
+
+
+/* =========================================================
+   SIDEBAR MENU
+========================================================= */
+
+.sidebar-menu {
+    padding:
+        5px
+        12px
+        10px;
+}
+
+.sidebar-menu a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        11px
+        12px;
+
+    border-radius: 10px;
+
+    color: var(--text-soft);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    margin-bottom: 4px;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.sidebar-menu a i {
+    width: 20px;
+
+    min-width: 20px;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    color: #64748b;
+
+    transition:
+        color .2s ease;
+}
+
+.sidebar-menu a:hover {
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+
+    transform:
+        translateX(2px);
+}
+
+.sidebar-menu a:hover i {
+    color:
+        var(--primary);
+}
+
+.sidebar-menu a.active {
+    background:
+        var(--primary);
+
+    color: white;
+
+    box-shadow:
+        0 5px 14px
+        rgba(37, 99, 235, .20);
+}
+
+.sidebar-menu a.active i {
+    color: white;
+}
+
+
+/* =========================================================
+   SIDEBAR DIVIDER
+========================================================= */
+
+.sidebar-divider {
+    height: 1px;
+
+    background:
+        var(--border);
+
+    margin:
+        10px
+        20px
+        4px;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout-section {
+    padding:
+        5px
+        12px
+        20px;
+}
+
+.logout-section a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        11px
+        12px;
+
+    color: var(--text-soft);
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+.logout-section a i {
+    width: 20px;
+
+    min-width: 20px;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+.logout-section a:hover {
+    background:
+        #fef2f2;
+
+    color:
+        var(--danger);
+}
+
+
+/* =========================================================
+   SIDEBAR OVERLAY
+========================================================= */
+
+.sidebar-overlay {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(15, 23, 42, .45);
+
+    backdrop-filter:
+        blur(2px);
+
+    z-index: 1040;
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
+
+/* =========================================================
+   TOP NAVBAR
+========================================================= */
+
+.top-navbar {
+    position: fixed;
+
+    top: 0;
+
+    left: 250px;
+
+    width:
+        calc(100% - 250px);
+
+    height: 72px;
+
+    background:
+        rgba(255, 255, 255, .96);
+
+    border-bottom:
+        1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        0 30px;
+
+    z-index: 900;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+/* =========================================================
+   NAVBAR TITLE
+========================================================= */
+
+.top-navbar-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 21px;
+
+    font-weight: 750;
+
+    color: var(--text);
+}
+
+.top-navbar-title i {
+    color:
+        var(--primary);
+}
+
+
+/* =========================================================
+   NAVBAR RIGHT
+========================================================= */
+
+.top-navbar-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* NAVBAR AVATAR
+
+   IMPORTANT:
+   This selector ONLY affects .navbar-avatar.
+*/
+
+.top-navbar-right .navbar-avatar {
+    display: block;
+
+    width: 38px !important;
+    height: 38px !important;
+
+    max-width: 38px !important;
+    max-height: 38px !important;
+
+    min-width: 38px;
+    min-height: 38px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border:
+        2px solid var(--primary);
+
+    background: white;
+
+    padding: 0;
+}
+
+
+.navbar-user-name {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--text);
+
+    max-width: 170px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-btn {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    color: var(--text);
+
+    border: none;
+
+    background:
+        transparent;
+
+    border-radius: 9px;
+
+    font-size: 24px;
+}
+
+.mobile-menu-btn:hover {
+    background:
+        #f1f5f9;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.main-content {
+    margin-left: 250px;
+
+    padding-top: 72px;
+
+    min-height: 100vh;
+
+    background:
+        var(--bg);
+}
+
+.content-wrapper {
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.profile-card {
+    width: 100%;
+
+    max-width: 760px;
+
+    margin:
+        10px auto 40px;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    overflow: hidden;
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+/* =========================================================
+   MAIN PROFILE HEADER
+========================================================= */
+
+.profile-header {
+    text-align: center;
+
+    padding:
+        30px
+        25px
+        24px;
+
+    background: white;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+/*
+   IMPORTANT:
+   Only the main profile image is controlled here.
+*/
+
+.profile-header .profile-image {
+    display: block;
+
+    width: 110px !important;
+    height: 110px !important;
+
+    max-width: 110px !important;
+    max-height: 110px !important;
+
+    min-width: 110px;
+    min-height: 110px;
+
+    margin:
+        0 auto;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border:
+        4px solid var(--primary);
+
+    background: white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(15, 23, 42, .10);
+}
+
+
+/* MAIN PROFILE NAME */
+
+.profile-header .profile-name {
+    margin-top: 14px;
+
+    font-size: 22px;
+
+    font-weight: 750;
+
+    line-height: 1.3;
+
+    color: var(--text);
+}
+
+
+/* MAIN PROFILE ROLE */
+
+.profile-header .profile-role {
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color:
+        var(--muted);
+}
+
+
+/* =========================================================
+   PROFILE BODY
+========================================================= */
+
+.profile-body {
+    padding:
+        25px
+        30px
+        30px;
+}
+
+
+/* =========================================================
+   INFORMATION BOX
+========================================================= */
+
+.info-box {
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    padding:
+        13px
+        15px;
+
+    margin-bottom:
+        10px;
+
+    background:
+        #fafafa;
+}
+
+.info-label {
+    font-size: 11px;
+
+    color:
+        var(--muted);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .04em;
+
+    margin-bottom: 4px;
+}
+
+.info-value {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: var(--text);
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   EDIT PROFILE
+========================================================= */
+
+.edit-section {
+    padding:
+        25px
+        30px
+        30px;
+}
+
+.edit-section-title {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    margin-bottom:
+        20px;
+}
+
+.edit-section-title i {
+    color:
+        var(--primary);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-label {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color:
+        var(--text-soft);
+}
+
+.form-control {
+    min-height: 44px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid #d1d5db;
+
+    font-size: 14px;
+
+    color: var(--text);
+}
+
+.form-control:focus {
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 .2rem
+        rgba(37, 99, 235, .12);
+}
+
+.form-text {
+    font-size: 12px;
+
+    color:
+        var(--muted);
+}
+
+
+/* =========================================================
+   CURRENT PROFILE PREVIEW
+========================================================= */
+
+.edit-section .current-profile-preview {
+    display: block;
+
+    width: 90px !important;
+    height: 90px !important;
+
+    max-width: 90px !important;
+    max-height: 90px !important;
+
+    min-width: 90px;
+    min-height: 90px;
+
+    margin:
+        0 0 12px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border:
+        3px solid var(--primary);
+
+    background: white;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+========================================================= */
+
+.edit-profile-btn {
+    width: 100%;
+
+    min-height: 44px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding:
+        10px 15px;
+
+    background:
+        var(--primary);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.edit-profile-btn:hover {
+    background:
+        var(--primary-dark);
+
+    color: white;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.cancel-btn {
+    width: 100%;
+
+    min-height: 44px;
+
+    border-radius: 9px;
+
+    padding:
+        10px;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+.alert {
+    border-radius:
+        var(--radius-md);
+
+    border: 1px solid transparent;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .sidebar {
+        transform:
+            translateX(-100%);
+
+        box-shadow:
+            12px 0 35px
+            rgba(15, 23, 42, .15);
+    }
+
+    .sidebar.show,
+    .sidebar.open {
+        transform:
+            translateX(0);
+    }
+
+
+    .top-navbar {
+        left: 0;
+
+        width: 100%;
+
+        height: 68px;
+
+        padding:
+            0 18px;
+    }
+
+
+    .mobile-menu-btn {
+        display: inline-flex;
+    }
+
+
+    .navbar-user-name {
+        display: none;
+    }
+
+
+    .main-content {
+        margin-left: 0;
+
+        padding-top: 68px;
+    }
+
+
+    .content-wrapper {
+        padding:
+            22px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .top-navbar {
+        height: 64px;
+
+        padding:
+            0 14px;
+    }
+
+
+    .top-navbar-title {
+        font-size: 18px;
+    }
+
+
+    .top-navbar-right .navbar-avatar {
+        width: 36px !important;
+        height: 36px !important;
+
+        max-width: 36px !important;
+        max-height: 36px !important;
+
+        min-width: 36px;
+        min-height: 36px;
+    }
+
+
+    .mobile-menu-btn {
+        width: 38px;
+        height: 38px;
+
+        font-size: 21px;
+    }
+
+
+    .main-content {
+        padding-top: 64px;
+    }
+
+
+    .content-wrapper {
+        padding:
+            16px;
+    }
+
+
+    .profile-card {
+        margin:
+            0 auto 25px;
+
+        border-radius:
+            13px;
+    }
+
+
+    .profile-header {
+        padding:
+            25px
+            20px
+            22px;
+    }
+
+
+    .profile-header .profile-image {
+        width: 95px !important;
+        height: 95px !important;
+
+        max-width: 95px !important;
+        max-height: 95px !important;
+
+        min-width: 95px;
+        min-height: 95px;
+    }
+
+
+    .profile-header .profile-name {
+        font-size: 20px;
+    }
+
+
+    .profile-body {
+        padding:
+            20px;
+    }
+
+
+    .edit-section {
+        padding:
+            20px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .top-navbar-title {
+        font-size: 16px;
+    }
+
+
+    .content-wrapper {
+        padding:
+            12px;
+    }
+
+
+    .profile-header .profile-image {
+        width: 88px !important;
+        height: 88px !important;
+
+        max-width: 88px !important;
+        max-height: 88px !important;
+
+        min-width: 88px;
+        min-height: 88px;
+    }
+
+
+    .profile-header .profile-name {
+        font-size: 18px;
+    }
+
+
+    .profile-body,
+    .edit-section {
+        padding:
+            18px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration:
+            .01ms !important;
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+    }
+}

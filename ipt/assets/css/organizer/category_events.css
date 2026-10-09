@@ -1,0 +1,357 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    background: #f4f6f9;
+
+    font-family:
+        'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    color: #333;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.top-navbar {
+
+    height: 65px;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 25px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.08);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+.back-btn {
+
+    text-decoration: none;
+
+    color: #2563eb;
+
+    font-weight: 600;
+}
+
+
+.page-title {
+
+    margin-left: 20px;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+.create-btn {
+
+    margin-left: auto;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main-content {
+
+    padding: 30px;
+
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+
+/* =========================
+   CATEGORY HEADER
+========================= */
+
+.category-header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    color: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    margin-bottom: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.category-header h1 {
+
+    margin: 0 0 5px;
+
+    font-size: 30px;
+
+    font-weight: 700;
+}
+
+
+.category-header p {
+
+    margin: 0;
+
+    opacity: .9;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.event-section {
+
+    margin-bottom: 45px;
+}
+
+
+.section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+
+.section-header h2 {
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    margin: 0;
+}
+
+
+/* =========================
+   EVENT CARDS
+========================= */
+
+.events-wrapper {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(280px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+
+.event-card {
+
+    background: white;
+
+    border-radius: 13px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0,0,0,.07);
+
+    transition: .25s;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.event-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.12);
+}
+
+
+.event-card h5 {
+
+    font-weight: 700;
+
+    margin:
+        10px 0 12px;
+}
+
+
+.organizer-label {
+
+    font-size: 12px;
+
+    color: #6b7280;
+}
+
+
+.event-card p {
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+
+.event-card p i {
+
+    width: 20px;
+
+    color: #2563eb;
+}
+
+
+.event-description {
+
+    color: #6b7280;
+
+    min-height: 45px;
+
+    margin-top: 5px;
+}
+
+
+.status-badge {
+
+    margin-top: 5px;
+
+    align-self: flex-start;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.card-actions {
+
+    display: grid;
+
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+
+.upcoming-actions {
+
+    grid-template-columns:
+        1fr 1fr;
+}
+
+
+.ongoing-actions {
+
+    grid-template-columns:
+        1fr;
+}
+
+
+.ended-actions {
+
+    grid-template-columns:
+        1fr;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty-state {
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #777;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.05);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px) {
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .category-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .create-btn {
+
+        margin-left: 0;
+
+        width: 100%;
+    }
+
+    .create-btn a {
+
+        width: 100%;
+    }
+
+}
